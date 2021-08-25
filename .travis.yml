@@ -3,9 +3,16 @@ compiler: gcc
 sudo: required
 install:
 - sudo apt-get install -qq qt5-qmake qtbase5-dev
-script:
-- qmake
-- make
+
+jobs:
+- stage: build
+  script:
+  - qmake
+  - make
+- stage: test
+  script:
+  - echo test
+
 deploy:
   provider: releases
   api_key:
