@@ -1,12 +1,16 @@
 language: cpp
-
 compiler: gcc
-
 sudo: required
-
 install:
-  - sudo apt-get install -qq qt5-qmake qtbase5-dev
-
+- sudo apt-get install -qq qt5-qmake qtbase5-dev
 script:
-  - qmake
-  - make
+- qmake
+- make
+deploy:
+  provider: releases
+  api_key:
+    secure: JuUKdmFL8Mau1RtIT6i810VzlXwt9dRhKnjfz7EC3EwzD6SGwrGOheWHHSyD2HTNELv0xZD8LZnwRfTwsAb8MWKsCWYlw4CjQKryx79Yu0DhW6TI7nqFp9dSDjqh/58YraAQNhzN4g+WJUA9bibtzLMQ41AMysGwV+pzRpPJaE1FhgYBlbc320d3w+wLtLQ+dmf7XRYrFL26y81y2FsBUxLWwfFpgn+f2q6+e4BnzjW1yVgeOr2TpHRwIbAgw+hlozDnbMnhalgOLuKxJakTYJ+EDviNxED5KvpyEiWpLsNfxPqB6Fo9KGruD50e2zWh307ihw1zJ7yXAYHADwXbRGj7WAHz+J9Yrf+IeQksmH6vmuBV0NYXlmY14K7w3gq1oaMGwlH8HsWOxe0qGu/TnvJnbuUMbMyNoBMStaeBLaOrGKpFRjil1htQBjjfDWfdWVmCW7xbPLpr41G7yJsQHUBO0o/KAHMzfHze8LYhuee/l2ocmJIDGoPJ98LfZgxvIWCbUkF2OIz9lbDQYivRdtS8kjDsxtUXb/eNO3D0jRD5oQv7byGCOeZQaanXpxq3aQ9WcIK1EZJZN9G/FfhS1Wcvew14e0JBnvN3krS8KwRmtlOcf2Nr4ZoVVUjrGVzvUoYqct2T+a2meCTCHcrpuM6Xq/KxhGZtUCJdv6G9Z2k=
+  file: app
+  skip_cleanup: true
+  on:
+    tags: true
