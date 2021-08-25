@@ -1,21 +1,12 @@
 language: cpp
 compiler: gcc
-sudo: required
 
-stages:
-- install
-- build
-- test
-- deploy
-
-install:
+before_install:
 - sudo apt-get install -qq qt5-qmake qtbase5-dev
 
-build:
+script:
 - qmake
 - make
-
-test:
 - echo test
 
 deploy:
