@@ -6,3 +6,7 @@ sudo: required
 
 install:
   - sudo apt-get install -qq qt5-qmake qtbase5-dev
+
+script:
+  - qmake
+  - make
