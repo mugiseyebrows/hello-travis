@@ -1,10 +1,11 @@
 language: cpp
 compiler: gcc
 sudo: required
-install:
-- sudo apt-get install -qq qt5-qmake qtbase5-dev
 
 jobs:
+- stage: install
+  script:
+  - sudo apt-get install -qq qt5-qmake qtbase5-dev
 - stage: build
   script:
   - qmake
